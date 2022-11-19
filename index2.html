@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prediction Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+}
+.well{
+    background-color: #187FAB;
+  }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div class="well">
+<center><h1 style="color: white;">Heart Disease</h1></center>
+</div>
+
+<div class="container">
+  <form action="{{ url_for('predict')}}"method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">age</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="age" placeholder="age(years)"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">sex</label>
+      </div>
+      <div class="col-75">
+        <input id="lname" type="text" name="sex" placeholder="Female or Male"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">cp</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="cp" placeholder="Chest Pain types"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">trestbps</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="trestbps" placeholder="Resting Blood Pressure"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">chol</label>
+      </div>
+      <div class="col-75">
+       <input id="fname"type="text" name="chol" placeholder="Fasting Blood Sugar > 120 mg/dl"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname"> fbs </label>
+      </div>
+      <div class="col-75">
+       <input id="fname"type="text" name="fbs" placeholder="Body Mass Index (kg/m²) eg. 23.1"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">restecg</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="restecg" placeholder="Diabetes Pedigree Function eg. 0.52"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">thalach</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="thalach" placeholder="Maximum Heart Rate achieved"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">exang</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="exang" placeholder="Exercise Induced Angina"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">oldpeak </label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="oldpeak" placeholder="ST depression induced by exercise"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">slope</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="slope" placeholder="Slope of the peak exercise ST segmen"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">ca </label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="ca" placeholder="Major vessels colored by flourosopy"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">thal</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="thal" placeholder="thal: 0 = normal; 1 = fixed defect; 2 = reversable defect"><br>
+      </div>
+    </div>
+
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+<div class="well">
+<center><h1 style="color: white;">Diabetes Disease</h1></center>
+</div>
+
+<div class="container">
+  <form action="{{ url_for('predict1')}}"method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Age</label>
+      </div>
+      <div class="col-75">
+       <input id="fname"type="text" name="Age" placeholder="Age (years) eg. 23"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Gender</label>
+      </div>
+      <div class="col-75">
+        <input id="lname" type="text" name="Gender" placeholder="Male or Female"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Polyuria</label>
+      </div>
+      <div class="col-75">
+       <input id="lname" type="text" name="Polyuria" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Polydipsia</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="Polydipsia" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Sudden Weight Loss</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="sudden weight loss" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Weakness</label>
+      </div>
+      <div class="col-75">
+        <input id="fname"type="text" name="weakness" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Polyphagia</label>
+      </div>
+      <div class="col-75">
+       <input id="fname"type="text" name="Polyphagia" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Genital Thrush</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="Genital thrush" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Visual Blurring</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="visual blurring" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Itching</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="Itching" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Irritability</label>
+      </div>
+      <div class="col-75">
+       <input id="fname"type="text" name="Irritability" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Delayed Healing</label>
+      </div>
+      <div class="col-75">
+       
+<input id="fname" type="text" name="delayed healing" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Partial Paresis</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="partial paresis" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Muscle Stiffness</label>
+      </div>
+      <div class="col-75">
+       <input id="fname"type="text" name="muscle stiffness" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Alopecia</label>
+      </div>
+      <div class="col-75">
+       
+<input id="fname" type="text" name="Alopecia" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Obesity</label>
+      </div>
+      <div class="col-75">
+       <input id="fname" type="text" name="Obesity" placeholder="Yes or No"><br>
+      </div>
+    </div>
+    
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+</body>
+</html>
